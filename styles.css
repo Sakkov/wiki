@@ -32,7 +32,43 @@ nav li {
 nav a {
     text-decoration: none;
     color: #333;
+}/* Mobile menu button */
+.mobile-menu-btn {
+    display: none;
+    cursor: pointer;
 }
+
+.bar1, .bar2, .bar3 {
+    width: 35px;
+    height: 5px;
+    background-color: #333;
+    margin: 6px 0;
+    transition: 0.4s;
+}
+
+/* Rotate the bars on click */
+.change .bar1 {
+    transform: translateY(11px) rotate(45deg);
+}
+
+.change .bar2 {
+    opacity: 0;
+}
+
+.change .bar3 {
+    transform: translateY(-11px) rotate(-45deg);
+}
+
+/* Show the mobile menu */
+.show-mobile {
+    display: block;
+}
+
+/* Hide the desktop menu */
+.hide-desktop {
+    display: none;
+}
+
 
 .search input[type="text"] {
     padding: 5px;
@@ -111,36 +147,82 @@ article {
     margin: 0 auto;
 }
 
-/* Style the footer */
-footer {
-    background-color: #f8f9fa;
-    padding: 20px 0;
-}
-
+/* Footer styles */
 .footer-container {
     display: flex;
-    justify-content: space-between;
+    flex-direction: column;
+    justify-content: center;
     align-items: center;
-    max-width: 1200px;
-    margin: 0 auto;
+    padding: 20px;
+    background-color: #f5f5f5;
+    border-top: 1px solid #ccc;
+}
+
+.footer-links {
+    margin-bottom: 20px;
 }
 
 .footer-links ul {
     display: flex;
-    list-style: none;
+    flex-wrap: wrap;
+    justify-content: center;
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
 }
 
-.footer-links li {
-    margin-right: 15px;
+.footer-links ul li {
+    margin: 5px 10px;
 }
 
-.footer-links a {
+.footer-links ul li a {
     color: #333;
+    text-decoration: none;
 }
 
-a.anchor {
-    display: block;
-    position: relative;
-    top: -80px;
-    visibility: hidden;
+.footer-links ul li a:hover {
+    text-decoration: underline;
+}
+
+.footer-logo {
+    width: 64px;
+    height: 64px;
+}
+
+.footer-logo img {
+    width: 100%;
+    height: auto;
+}
+
+/* Media query for mobile devices */
+@media (max-width: 767px) {
+    .mobile-menu-btn {
+        display: block;
+    }
+
+    nav ul {
+        display: none;
+        text-align: right;
+    }
+
+    .search {
+        display: none;
+    }
+
+    a {
+        word-break: break-all;
+    }
+
+    ol, ul {
+        margin-left: 0;
+        padding-left: 0;
+    }
+
+    .footer-links ul {
+        flex-direction: column;
+    }
+
+    .footer-links ul li {
+        margin-bottom: 10px;
+    }
 }
